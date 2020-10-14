@@ -1,0 +1,21 @@
+﻿  main.cpp
+main.obj : error LNK2019: __imp__glewInit@0 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: __imp__glewGetErrorString@4 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwInit 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwTerminate 외부 기호(참조 위치: "void __cdecl key_pressed(struct GLFWwindow *,int,int,int,int)" (?key_pressed@@YAXPAUGLFWwindow@@HHHH@Z) 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwSetErrorCallback 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwWindowHint 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwCreateWindow 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwDestroyWindow 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwWindowShouldClose 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwSetWindowSizeCallback 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwPollEvents 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwSetKeyCallback 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwMakeContextCurrent 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwSwapBuffers 외부 기호(참조 위치: "void __cdecl window_resized(struct GLFWwindow *,int,int)" (?window_resized@@YAXPAUGLFWwindow@@HH@Z) 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2019: _glfwSwapInterval 외부 기호(참조 위치: _main 함수)에서 확인하지 못했습니다.
+main.obj : error LNK2001: __imp____glewGetStringi 외부 기호를 확인할 수 없습니다.
+main.obj : error LNK2001: __imp__glewExperimental 외부 기호를 확인할 수 없습니다.
+lib-vc2017\glew32.lib : warning LNK4272: 'x64' 라이브러리 컴퓨터 종류가 'x86' 대상 컴퓨터 종류와 충돌합니다.
+lib-vc2017\glfw3.lib : warning LNK4272: 'x64' 라이브러리 컴퓨터 종류가 'x86' 대상 컴퓨터 종류와 충돌합니다.
+C:\practice\cpp\3DGraphics\OpenglSample\Debug\OpenglSample.exe : fatal error LNK1120: 17개의 확인할 수 없는 외부 참조입니다.
