@@ -1,3 +1,5 @@
+#include <vector>
+
 #include "ICleanUp.h"
 
 #include "include/GL/glew.h"
@@ -16,12 +18,15 @@ public:
 		return &instance;
 	}
 public:
+	void addObject(RenderableObject* _added);
 	void init();
 	void render(RenderableObject* src_obj);
+	void render();
 
 	void setCameraPosition(glm::vec3 _input);
 	virtual void shutDown() override;
 private:
+	std::vector<RenderableObject*> renderableObjectVec;
 	glm::vec3 cameraPosition;
 	GLFWwindow* window;
 };

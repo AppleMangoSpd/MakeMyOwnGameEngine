@@ -7,6 +7,11 @@
 
 #include "glm/gtc/matrix_transform.hpp"
 
+void Renderer::addObject(RenderableObject* _added)
+{
+	renderableObjectVec.push_back(_added);
+}
+
 void Renderer::init()
 {
 	//GLFW √ ±‚»≠
@@ -145,6 +150,17 @@ void Renderer::render(RenderableObject* src_obj)
 	// Swap buffers
 	glfwSwapBuffers(window);
 	glfwPollEvents();
+}
+
+void Renderer::render()
+{
+	std::vector<RenderableObject*>::iterator iter;
+	iter = renderableObjectVec.begin();
+	while (iter != renderableObjectVec.end())
+	{
+		this->render(*iter);
+		++iter;
+	}
 }
 
 void Renderer::setCameraPosition(glm::vec3 _input)

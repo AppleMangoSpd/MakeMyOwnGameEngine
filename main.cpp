@@ -7,6 +7,7 @@
 #include "Object.h"
 #include "FileManager.h"
 #include "Renderer.h"
+#include "Sphere.h"
 
 int main()
 {
@@ -19,6 +20,8 @@ int main()
 	RenderableObject* cube = new RenderableObject();
 	cube->setPosition(glm::vec3(0.0f, 2.0f, 0.0f));
 
+	RenderableObject* mySphere = new Sphere();
+
 	file_mgr->loadObj(
 		cube,
 		"cube.obj",
@@ -26,6 +29,9 @@ int main()
 		"vs.shader",
 		"fs.shader"
 	);
+
+
+	renderer->addObject(cube);
 
 	while (true)
 	{
