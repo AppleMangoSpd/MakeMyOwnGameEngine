@@ -1,2 +1,0 @@
-C:\practice\cpp\3DGraphics\OpenglSample\x64\Debug\OpenglSample.exe
-C:\practice\cpp\3DGraphics\OpenglSample\x64\Debug\OpenglSample.pdb
