@@ -28,3 +28,9 @@ Sphere::Sphere(GLuint _vertexArrayID, GLuint _programID,
 	normalbuffer = _normalbuffer;
 	LightID = _lightID;
 }
+
+
+void Sphere::shutDown()
+{
+	RenderableObject::shutDown();
+}

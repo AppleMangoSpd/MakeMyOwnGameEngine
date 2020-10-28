@@ -2,7 +2,6 @@
 
 #include "Renderer.h"
 #include "Object.h"
-
 #include "include/GLFW/glfw3.h" 
 
 #include "glm/gtc/matrix_transform.hpp"
@@ -158,9 +157,14 @@ void Renderer::render()
 	iter = renderableObjectVec.begin();
 	while (iter != renderableObjectVec.end())
 	{
-		this->render(*iter);
+		(*iter)->render();
 		++iter;
 	}
+}
+
+void Renderer::update(IUpdater* src_obj)
+{
+	src_obj->update();
 }
 
 void Renderer::setCameraPosition(glm::vec3 _input)
@@ -170,5 +174,11 @@ void Renderer::setCameraPosition(glm::vec3 _input)
 
 void Renderer::shutDown()
 {
+	std::vector<RenderableObject*>::iterator iter;
+	iter = renderableObjectVec.begin();
+	while (iter != renderableObjectVec.end())
+	{
+		(*iter)->shutDown();
+	}
 	glfwTerminate();
 }

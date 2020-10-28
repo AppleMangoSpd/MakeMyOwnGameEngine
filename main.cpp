@@ -19,8 +19,7 @@ int main()
 
 	RenderableObject* cube = new RenderableObject();
 	cube->setPosition(glm::vec3(0.0f, 2.0f, 0.0f));
-
-	RenderableObject* mySphere = new Sphere();
+	renderer->addObject(cube);
 
 	file_mgr->loadObj(
 		cube,
@@ -30,17 +29,23 @@ int main()
 		"fs.shader"
 	);
 
+	Sphere* mySphere = new Sphere();
+	renderer->addObject(mySphere);
 
-	renderer->addObject(cube);
+	NonRenderableObject* non_render_obj = new NonRenderableObject();
 
 	while (true)
 	{
-		renderer->render(cube);
+		renderer->update(non_render_obj);
+
+		renderer->render();
 	}
 
+	non_render_obj->shutDown();
 	renderer->shutDown();
-	cube->shutDown();
 
+	delete non_render_obj;
+	delete mySphere;
 	delete cube;
 
 	return 0;

@@ -1,4 +1,5 @@
 #include "Object.h"
+#include "Renderer.h"
 
 void Object::setPosition(glm::vec3 _input)
 {
@@ -14,3 +15,9 @@ void RenderableObject::shutDown()
 	glDeleteTextures(1, &Texture);
 	glDeleteVertexArrays(1, &VertexArrayID);
 }
+
+void RenderableObject::render()
+{
+	Renderer::instance()->render(this);
+}
+

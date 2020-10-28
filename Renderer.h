@@ -8,6 +8,8 @@
 class Object;
 class RenderableObject;
 class GLFWwindow;
+class IUpdater;
+class IRenderer;
 
 class Renderer : public ICleanUp
 {
@@ -22,6 +24,8 @@ public:
 	void init();
 	void render(RenderableObject* src_obj);
 	void render();
+
+	void update(IUpdater* render_obj);
 
 	void setCameraPosition(glm::vec3 _input);
 	virtual void shutDown() override;

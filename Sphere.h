@@ -13,5 +13,6 @@ public:
 		std::vector<glm::vec3> _normals,
 		GLuint _vertexbuffer, GLuint _uvbuffer, GLuint _normalbuffer,
 		GLuint _lightID);
+	void shutDown() override;
 };
 

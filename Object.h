@@ -5,6 +5,8 @@
 #include "include/GL/glew.h"
 
 #include "ICleanUp.h"
+#include "IUpdater.h"
+#include "IRenderer.h"
 
 class Object : public ICleanUp
 {
@@ -17,7 +19,7 @@ public:
 	virtual ~Object() {}
 };
 
-class RenderableObject : public Object
+class RenderableObject : public Object, public IRenderer
 {
 public:
 	GLuint VertexArrayID;
@@ -39,10 +41,14 @@ public:
 
 public:
 	virtual void shutDown() override;
+	virtual void render() override;
 };
 
-class NonRenderableObject : public Object
+class NonRenderableObject : public Object, public IUpdater
 {
 public:
-	virtual void shutDown() override {}
+	//현재 데이터 없지만 Renderable도 쓰니까 코드의 공통성 유지
+	virtual void shutDown() override {};
+	virtual void update() override {};
 };
+
