@@ -29,23 +29,29 @@ int main()
 		"fs.shader"
 	);
 
-	Sphere* mySphere = new Sphere();
-	renderer->addObject(mySphere);
+	//Sphere* mySphere = new Sphere();
+	//renderer->addObject(mySphere);
 
 	NonRenderableObject* non_render_obj = new NonRenderableObject();
 
 	while (true)
 	{
-		renderer->update(non_render_obj);
-
-		renderer->render();
+		
+		if (renderer->canUpdate())
+		{
+			renderer->update(non_render_obj);
+		}
+		if (renderer->canRender())
+		{
+			renderer->render();
+		}
 	}
 
 	non_render_obj->shutDown();
 	renderer->shutDown();
 
 	delete non_render_obj;
-	delete mySphere;
+	//delete mySphere;
 	delete cube;
 
 	return 0;

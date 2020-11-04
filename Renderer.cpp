@@ -67,6 +67,16 @@ void Renderer::init()
 	glDepthFunc(GL_LESS);
 	//Cull 사용하럿
 	glEnable(GL_CULL_FACE);
+
+	_frameInfo.QuadPart = 0;
+	_prevFrameCounter.QuadPart = 0;
+	_nowFrameCounter.QuadPart = 0;
+	_renderFrameRate = 60;
+}
+
+void Renderer::setRenderFrameRate(double _input)
+{
+	this->_renderFrameRate = _input;
 }
 
 void Renderer::render(RenderableObject* src_obj)
@@ -157,7 +167,8 @@ void Renderer::render()
 	iter = renderableObjectVec.begin();
 	while (iter != renderableObjectVec.end())
 	{
-		(*iter)->render();
+		//(*iter)->render();
+		this->render(*iter);
 		++iter;
 	}
 }
@@ -165,6 +176,48 @@ void Renderer::render()
 void Renderer::update(IUpdater* src_obj)
 {
 	src_obj->update();
+}
+
+bool Renderer::canUpdate()
+{
+	QueryPerformanceFrequency(&_frameInfo);
+	QueryPerformanceCounter(&_prevFrameCounter);
+
+	// fps 60 고정
+	double _perFrame = _frameInfo.QuadPart / 60;
+
+	QueryPerformanceCounter(&_nowFrameCounter);
+
+	double time_distance = _nowFrameCounter.QuadPart - _prevFrameCounter.QuadPart;
+
+	if (time_distance > _perFrame)
+	{
+		_prevFrameCounter = _nowFrameCounter;
+		
+		return true;
+	}
+	return false;
+}
+
+bool Renderer::canRender()
+{
+	QueryPerformanceFrequency(&_frameInfo);
+	QueryPerformanceCounter(&_prevFrameCounter);
+
+	// 가변 기준은 어떻게?
+	double _perFrame = _frameInfo.QuadPart / _renderFrameRate;
+
+	QueryPerformanceCounter(&_nowFrameCounter);
+
+	double time_distance = _nowFrameCounter.QuadPart - _prevFrameCounter.QuadPart;
+
+	if (time_distance > _perFrame)
+	{
+		_prevFrameCounter = _nowFrameCounter;
+
+		return true;
+	}
+	return false;
 }
 
 void Renderer::setCameraPosition(glm::vec3 _input)

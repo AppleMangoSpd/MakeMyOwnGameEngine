@@ -1,5 +1,5 @@
 #include <vector>
-
+#include <windows.h>
 #include "ICleanUp.h"
 
 #include "include/GL/glew.h"
@@ -22,14 +22,24 @@ public:
 public:
 	void addObject(RenderableObject* _added);
 	void init();
+	void setRenderFrameRate(double _input);
 	void render(RenderableObject* src_obj);
 	void render();
 
 	void update(IUpdater* render_obj);
 
+	bool canUpdate();
+	bool canRender();
+
 	void setCameraPosition(glm::vec3 _input);
 	virtual void shutDown() override;
 private:
+	LARGE_INTEGER _frameInfo;
+	LARGE_INTEGER _prevFrameCounter;
+	LARGE_INTEGER _nowFrameCounter;
+
+	double _renderFrameRate;
+
 	std::vector<RenderableObject*> renderableObjectVec;
 	glm::vec3 cameraPosition;
 	GLFWwindow* window;
