@@ -8,6 +8,8 @@
 #include "FileManager.h"
 #include "Renderer.h"
 #include "Sphere.h"
+#include "Updater.h"
+#include "BehaviorTemplate.h"
 
 int main()
 {
@@ -15,31 +17,22 @@ int main()
 
 	Renderer* renderer = Renderer::instance();
 	renderer->init();
-	renderer->setCameraPosition(glm::vec3(0.0f, 5.0f, 7.0f));
+	renderer->setCameraPosition(glm::vec3(5.0f, 10.0f, 5.0f));
 
-	RenderableObject* cube = new RenderableObject();
+	Updater* updater = Updater::instance();
+
+	BehaviorTemplate* cube = new RenderableObject();
 	cube->setPosition(glm::vec3(0.0f, 2.0f, 0.0f));
-	renderer->addObject(cube);
 
-	file_mgr->loadObj(
-		cube,
-		"cube.obj",
-		"uvtemplate.DDS",
-		"vs.shader",
-		"fs.shader"
-	);
-
-	//Sphere* mySphere = new Sphere();
-	//renderer->addObject(mySphere);
-
-	NonRenderableObject* non_render_obj = new NonRenderableObject();
+	BehaviorTemplate* non_render_obj = new NonRenderableObject();
 
 	while (true)
 	{
 		
 		if (renderer->canUpdate())
 		{
-			renderer->update(non_render_obj);
+			//renderer->update(non_render_obj);
+			updater->update();
 		}
 		if (renderer->canRender())
 		{
@@ -48,10 +41,10 @@ int main()
 	}
 
 	non_render_obj->shutDown();
+	cube->shutDown();
 	renderer->shutDown();
 
 	delete non_render_obj;
-	//delete mySphere;
 	delete cube;
 
 	return 0;

@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <iostream>
 
 #include "Renderer.h"
 #include "Object.h"
@@ -180,44 +181,54 @@ void Renderer::update(IUpdater* src_obj)
 
 bool Renderer::canUpdate()
 {
-	QueryPerformanceFrequency(&_frameInfo);
-	QueryPerformanceCounter(&_prevFrameCounter);
+	//QueryPerformanceFrequency(&_frameInfo);
+	//QueryPerformanceCounter(&_prevFrameCounter);
 
-	// fps 60 고정
-	double _perFrame = _frameInfo.QuadPart / 60;
+	//// fps 60 고정
+	//double _perFrame = _frameInfo.QuadPart / 60;
 
-	QueryPerformanceCounter(&_nowFrameCounter);
+	//QueryPerformanceCounter(&_nowFrameCounter);
 
-	double time_distance = _nowFrameCounter.QuadPart - _prevFrameCounter.QuadPart;
+	//double time_distance = _nowFrameCounter.QuadPart - _prevFrameCounter.QuadPart;
 
-	if (time_distance > _perFrame)
-	{
-		_prevFrameCounter = _nowFrameCounter;
-		
-		return true;
-	}
-	return false;
+	//if (time_distance > _perFrame)
+	//{
+	//	_prevFrameCounter = _nowFrameCounter;
+	//	std::cout << "current Update Frame : " << _nowFrameCounter.QuadPart << std::endl;
+	//	return true;
+	//}
+	//std::cout << "current Update Frame : " << _nowFrameCounter.QuadPart << std::endl;
+
+	//return false;
+
+	//수정필요!!!
+	return true;
 }
 
 bool Renderer::canRender()
 {
-	QueryPerformanceFrequency(&_frameInfo);
-	QueryPerformanceCounter(&_prevFrameCounter);
+	//QueryPerformanceFrequency(&_frameInfo);
+	//QueryPerformanceCounter(&_prevFrameCounter);
 
-	// 가변 기준은 어떻게?
-	double _perFrame = _frameInfo.QuadPart / _renderFrameRate;
+	//// 가변 기준은 어떻게?
+	//double _perFrame = _frameInfo.QuadPart / _renderFrameRate;
 
-	QueryPerformanceCounter(&_nowFrameCounter);
+	//QueryPerformanceCounter(&_nowFrameCounter);
 
-	double time_distance = _nowFrameCounter.QuadPart - _prevFrameCounter.QuadPart;
+	//double time_distance = _nowFrameCounter.QuadPart - _prevFrameCounter.QuadPart;
 
-	if (time_distance > _perFrame)
-	{
-		_prevFrameCounter = _nowFrameCounter;
+	//if (time_distance > _perFrame)
+	//{
+	//	_prevFrameCounter = _nowFrameCounter;
+	//	std::cout << "current Render Frame : " << _nowFrameCounter.QuadPart << std::endl;
 
-		return true;
-	}
-	return false;
+	//	return true;
+	//}
+	//std::cout << "current Render Frame : " << _nowFrameCounter.QuadPart << std::endl;
+
+	//return false;
+	//수정필요!!!
+	return true;
 }
 
 void Renderer::setCameraPosition(glm::vec3 _input)
