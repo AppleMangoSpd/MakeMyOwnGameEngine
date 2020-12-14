@@ -10,6 +10,7 @@
 #include "Sphere.h"
 #include "Updater.h"
 #include "BehaviorTemplate.h"
+#include "GetKeyDown.h"
 
 int main()
 {
@@ -21,14 +22,17 @@ int main()
 
 	Updater* updater = Updater::instance();
 
-	BehaviorTemplate* cube = new RenderableObject();
+	GetKeyDown* key_mgr = GetKeyDown::instance();
+
+	RenderableObject* cube = new RenderableObject();
 	cube->setPosition(glm::vec3(0.0f, 2.0f, 0.0f));
 
-	BehaviorTemplate* non_render_obj = new NonRenderableObject();
+	NonRenderableObject* non_render_obj = new NonRenderableObject();
+
+	key_mgr->SetInfluencedObject(cube);
 
 	while (true)
 	{
-		
 		if (renderer->canUpdate())
 		{
 			//renderer->update(non_render_obj);
@@ -40,9 +44,9 @@ int main()
 		}
 	}
 
-	non_render_obj->shutDown();
-	cube->shutDown();
-	renderer->shutDown();
+	//non_render_obj->shutDown();
+	//cube->shutDown();
+	//renderer->shutDown();
 
 	delete non_render_obj;
 	delete cube;

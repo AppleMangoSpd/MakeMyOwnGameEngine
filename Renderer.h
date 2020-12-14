@@ -3,6 +3,7 @@
 #include "ICleanUp.h"
 
 #include "include/GL/glew.h"
+#include "include/GLFW/glfw3.h" 
 #include "glm/glm.hpp"
 
 class Object;
@@ -33,6 +34,8 @@ public:
 
 	void setCameraPosition(glm::vec3 _input);
 	virtual void shutDown() override;
+	
+	GLFWwindow* getWindow() const { return window; }
 private:
 	LARGE_INTEGER _frameInfo;
 	LARGE_INTEGER _prevFrameCounter;

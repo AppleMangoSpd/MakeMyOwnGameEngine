@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ComponentObject.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="GetKeyDown.cpp" />
     <ClCompile Include="main.cpp" />
@@ -152,6 +153,7 @@
     <None Include="vs.shader" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ComponentObject.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="GetKeyDown.h" />
     <ClInclude Include="ICleanUp.h" />

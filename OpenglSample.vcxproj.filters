@@ -36,6 +36,9 @@
     <ClCompile Include="Updater.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="ComponentObject.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="vs.shader">
@@ -74,6 +77,9 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="BehaviorTemplate.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ComponentObject.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
