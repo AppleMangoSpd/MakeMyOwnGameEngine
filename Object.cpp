@@ -13,15 +13,6 @@ void Object::doSetPosition(glm::vec3 _input)
 RenderableObject::RenderableObject()
 {
 	Renderer::instance()->addObject(this);
-
-	//need to fix) do loadObj in child
-	FileManager::instance()->loadObj(
-		this,
-		"cube.obj",
-		"uvtemplate.DDS",
-		"vs.shader",
-		"fs.shader"
-	);
 }
 
 void RenderableObject::shutDown()
@@ -92,7 +83,7 @@ void NonRenderableObject::KeyDowned(int key)
 
 void NonRenderableObject::doUpdate()
 {
-	std::cout << "NonRenderObj Updated!" << std::endl;
+	
 }
 
 void NonRenderableObject::addSelfToUpdater()

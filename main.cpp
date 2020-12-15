@@ -11,6 +11,8 @@
 #include "Updater.h"
 #include "BehaviorTemplate.h"
 #include "GetKeyDown.h"
+#include "Player.h"
+#include "Bullet.h"
 
 int main()
 {
@@ -18,20 +20,23 @@ int main()
 
 	Renderer* renderer = Renderer::instance();
 	renderer->init();
-	renderer->setCameraPosition(glm::vec3(5.0f, 10.0f, 5.0f));
+	renderer->setCameraPosition(glm::vec3(0.0f, -3.0f, 10.0f));
 
 	Updater* updater = Updater::instance();
 
 	GetKeyDown* key_mgr = GetKeyDown::instance();
 
-	RenderableObject* cube = new RenderableObject();
-	cube->setPosition(glm::vec3(0.0f, 2.0f, 0.0f));
+	RenderableObject* playerCube = new Player();
+	playerCube->setPosition(glm::vec3(0.0f, -3.0f, 0.0f));
 
-	NonRenderableObject* non_render_obj = new NonRenderableObject();
+	RenderableObject* bulletCube_1 = new RenderableObject();
+	bulletCube_1->setPosition(glm::vec3(0.0f, 6.0f, 0.0f));
 
-	key_mgr->SetInfluencedObject(cube);
+	NonRenderableObject* WindowControl = new NonRenderableObject();
 
-	while (true)
+	key_mgr->SetInfluencedObject(playerCube);
+
+	while (!renderer->isEnd())
 	{
 		if (renderer->canUpdate())
 		{
@@ -47,9 +52,8 @@ int main()
 	//non_render_obj->shutDown();
 	//cube->shutDown();
 	//renderer->shutDown();
-
-	delete non_render_obj;
-	delete cube;
+	
+	delete playerCube;
 
 	return 0;
 }

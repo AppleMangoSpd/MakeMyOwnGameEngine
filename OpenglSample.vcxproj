@@ -139,13 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="ComponentObject.cpp" />
     <ClCompile Include="FileManager.cpp" />
     <ClCompile Include="GetKeyDown.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Renderer.cpp" />
     <ClCompile Include="Sphere.cpp" />
+    <ClCompile Include="Tree.cpp" />
     <ClCompile Include="Updater.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -153,6 +156,7 @@
     <None Include="vs.shader" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Bullet.h" />
     <ClInclude Include="ComponentObject.h" />
     <ClInclude Include="FileManager.h" />
     <ClInclude Include="GetKeyDown.h" />
@@ -161,8 +165,10 @@
     <ClInclude Include="IUpdater.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="BehaviorTemplate.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Renderer.h" />
     <ClInclude Include="Sphere.h" />
+    <ClInclude Include="Tree.h" />
     <ClInclude Include="Updater.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

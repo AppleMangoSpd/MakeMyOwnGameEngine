@@ -101,4 +101,8 @@ void GetKeyDown::update()
 			(*nIt)->KeyDowned(GLFW_KEY_RIGHT);
 		}
 	}
+	if (glfwGetKey(Renderer::instance()->getWindow(), GLFW_KEY_ESCAPE) == GLFW_PRESS)
+	{
+		Renderer::instance()->setEnd();
+	}
 }

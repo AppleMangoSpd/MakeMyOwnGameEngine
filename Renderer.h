@@ -15,6 +15,7 @@ class IRenderer;
 class Renderer : public ICleanUp
 {
 public:
+	Renderer() : _isEnd(false) {}
 	static Renderer* instance()
 	{
 		static Renderer instance;
@@ -36,12 +37,17 @@ public:
 	virtual void shutDown() override;
 	
 	GLFWwindow* getWindow() const { return window; }
+
+	void setEnd() { _isEnd = true; };
+	bool isEnd() const { return _isEnd; };
 private:
 	LARGE_INTEGER _frameInfo;
 	LARGE_INTEGER _prevFrameCounter;
 	LARGE_INTEGER _nowFrameCounter;
 
 	double _renderFrameRate;
+
+	bool _isEnd;
 
 	std::vector<RenderableObject*> renderableObjectVec;
 	glm::vec3 cameraPosition;
